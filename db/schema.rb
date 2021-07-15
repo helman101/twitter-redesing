@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_202021) do
+ActiveRecord::Schema.define(version: 2021_07_15_132700) do
+
+  create_table "opinions", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_opinions_on_author_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "userName"
@@ -19,4 +27,5 @@ ActiveRecord::Schema.define(version: 2021_07_14_202021) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "opinions", "users", column: "author_id"
 end
