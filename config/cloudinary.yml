@@ -1,0 +1,6 @@
+production:
+  cloud_name: helman101
+  api_key: '176219472975922'
+  api_secret: enbxMbo6LhJHC2a_BdgDKPKVp4k
+  enhance_image_tag: true
+  static_file_support: true
