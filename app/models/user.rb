@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :coverImage
+  has_many :opinions
+  has_many :followings
+  has_many :followers, through: :followings
+  has_many :followed, through: :followings
   has_secure_password
 
   validates :password, length: { minimum: 6 }
