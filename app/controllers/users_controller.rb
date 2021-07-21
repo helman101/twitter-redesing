@@ -1,16 +1,9 @@
 class UsersController < ApplicationController
+  before_action :user_loged?
   before_action :set_user, if: :current_user?, only: [ :show, :destroy, :edit ]
 
   def index 
     @users = User.all
-  end
-
-  def show
-    @user ||= User.find(session[:user_id])
-  end
-
-  def new
-    @user = User.new
   end
 
   def create
