@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     resources :opinions
   end
 
+  post '/sign_in', to: 'user#create'
+  get '/home', to: 'user#show'
+
   resources :followings
   
 end
