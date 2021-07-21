@@ -3,9 +3,11 @@ Rails.application.routes.draw do
     resources :opinions
   end
 
-  post '/sign_in', to: 'user#create'
-  get '/home', to: 'user#show'
+  post '/sign_in', to: 'users#create'
+  get '/home', to: 'users#show'
 
   resources :followings
+
+  root 'sessions#create'
   
 end
