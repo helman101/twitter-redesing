@@ -11,4 +11,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, :userName
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates_precense_of :fullName, :userName, :email, :password, :password_confirmation
+
+  def friends_and_own_opinions
+    Opinions.where(user: (followed.to_a << self))
+  end
 end
