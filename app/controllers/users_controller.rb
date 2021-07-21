@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :user_loged?
-  before_action :set_user, if: :current_user?, only: [ :show, :destroy, :edit ]
+  before_action :set_user, if: :user?, only: [ :show, :destroy, :edit ]
 
   def index 
     @users = User.all
+  end
+
+  def show
+    @opinions = User.friends_and_own_opinions
   end
 
   def create
