@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :user_loged?
-  before_action :set_user, if: :user?, only: %i[show destroy edit]
+  before_action :set_user, if: :user?, only: %i[ destroy edit]
 
   def index
     @users = User.all
   end
 
   def show
+    @user = User.find(user_params[:user_id])
     @opinions = User.friends_and_own_opinions
   end
 
