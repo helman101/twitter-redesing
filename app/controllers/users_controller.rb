@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_loged?
-  before_action :set_user, if: :user?, only: %i[ destroy edit]
+  before_action :set_user, if: :user?, only: %i[destroy edit]
 
   def index
     @users = User.all
