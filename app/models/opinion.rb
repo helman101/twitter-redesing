@@ -1,6 +1,6 @@
 class Opinion < ApplicationRecord
-  belongs_to :users
+  belongs_to :author, class_name: 'User'
 
-  validate :content, length: { in: 1..150 }
-  validate_precense_of :content, :author_id
+  validates :content, length: { in: 1..150 }
+  validates_presence_of :content, :author_id
 end
