@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_loged?
+  before_action :user_loged?, only: [ :show, :edit, :destroy ]
   before_action :set_user, if: :user?, only: %i[destroy edit]
 
   def index
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, notice: 'You\'ve succesfully create a user, please log in'
     else
-      redirect_to new_user_path
+      redirect_to new_user_path, notice: 'invalid inputs, try again'
     end
   end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :photo, :coverImage, :fullName)
+    params.require(:user).permit(:userName, :email, :password, :password_confirmation, :photo, :coverImage, :fullName)
   end
 
   def set_user
