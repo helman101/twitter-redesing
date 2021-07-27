@@ -1,13 +1,23 @@
-<h1>Log In</h1>
+<div class='content d-flex align-items-center'>
+    <div class='log-form mx-auto border rounded'>
+    <div class='form-tl text-center'>Log In</div>
 
-<%= form_for :session, url: sessions_path do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+    <%= form_for :session, url: sessions_path do |f| %>
+      <div class='mb-2 mt-3'>
+        <%= f.label :email, 'Email: ' %>
+        <br/>
+        <%= f.email_field :email %>
+      </div>
+      <div class='mb-2'>
+        <%= f.label :password, 'Password: ' %>
+        <br/>
+        <%= f.password_field :password %> 
+      </div>
+      <%= link_to 'Are you new?, Join us!', sign_up_path %>
+      <br/>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+      <%= f.submit 'Log In', class: 'mt-3 mx-auto w-100 btn btn-primary' %>
 
-  <%= f.submit 'Log In' %>
-<% end %>
-
-<%= link_to 'Are you new?, Join us!', sign_up_path %>
+    <% end %>
+  </div>
+</div>
