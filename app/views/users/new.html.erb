@@ -1,6 +1,6 @@
 <div class='content d-flex align-items-center'>
   <div class='log-form mx-auto border rounded'>
-    <div class='form-tl text-center'>Sign Up</div>
+    <div class='form-tl text-center text-primary'>Sign Up</div>
 
     <%= form_for :user, url: users_path do |f| %>
 
@@ -37,7 +37,7 @@
       <%= link_to 'Do you have an account?', new_session_path %>
       <br/>
 
-      <%= f.submit 'Sign Up' %>
+      <%= f.submit 'Sign Up', class: 'mt-3 mx-auto w-100 btn btn-primary' %>
 
     <% end %>
 
