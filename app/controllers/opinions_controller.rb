@@ -1,6 +1,11 @@
 class OpinionsController < ApplicationController
+  def index
+    @user = current_user
+    @opinions = @user.friends_and_own_opinions
+  end
+
   def create
-    @opinion = current_user.opinions.new(params[:content])
+    @opinion = current_user.opinions.new(opinion_params)
 
     if @opinion.save
       redirect_to request.referrer, notice: 'You post an opinion'
@@ -24,4 +29,11 @@ class OpinionsController < ApplicationController
 
     redirect_to request.referrer, notice: 'Opinion delete successfully'
   end
+
+  private 
+  
+  def opinion_params
+    params.require(:opinion).permit(:content)  
+  end
+
 end
