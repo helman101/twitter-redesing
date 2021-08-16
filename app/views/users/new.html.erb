@@ -1,0 +1,49 @@
+<div class='content d-flex align-items-center'>
+  <div class='log-form sign-form mx-auto border rounded'>
+    <div class='form-tl text-center text-primary'>Sign Up</div>
+
+    <%= form_for :user, { url: users_path } do |f| %>
+
+      <div class='mt-2'>
+        <%= f.label :fullName, 'Full Name: ' %>
+        <br/>
+        <%= f.text_field :fullName, class: 'w-100' %>
+      </div>
+
+      <div class='d-flex mt-2'>
+        <div class='w-50 mr-3'>
+          <%= f.label :userName, 'Username: ' %>
+          <br/>
+          <%= f.text_field :userName, class: 'w-100' %>
+        </div>
+
+        <div class='w-50'>
+          <%= f.label :email, 'Email: ' %>
+          <br/>
+          <%= f.email_field :email, class: 'w-100' %>
+        </div>
+      </div>
+
+      <div class='d-flex mt-2 mb-3'>
+        <div class='w-50 mr-3'>
+          <%= f.label :password, 'Password: ' %>
+          <br/>
+          <%= f.password_field :password, class: 'w-100' %>
+        </div>
+        
+        <div class='w-50'>
+          <%= f.label :password_confirmation, 'Confirm password: ' %>
+          <br/>
+          <%= f.password_field :password_confirmation, class: 'w-100' %>
+        </div>
+      </div>
+
+      <%= link_to 'Do you have an account?', new_session_path %>
+      <br/>
+
+      <%= f.submit 'Sign Up', class: 'mt-3 mx-auto w-100 btn btn-primary' %>
+
+    <% end %>
+
+  </div>
+</div>

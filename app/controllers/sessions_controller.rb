@@ -2,11 +2,15 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: session_params[:email])
 
-    if @user&.authenticate(session_params[:password])
-      session[:user_id] = @user.id
-      redirect_to user_path, notice: 'Log in successfully'
+    if @user
+      if @user.authenticate(session_params[:password])
+        session[:user_id] = @user.id
+        redirect_to user_opinions_path(@user.id), notice: 'Log in successfully'
+      else
+        redirect_to root_path, alert: 'Wrong password, try again'
+      end
     else
-      redirect_to root_path
+      redirect_to root_path, alert: 'This user does not exist'
     end
   end
 
@@ -19,6 +23,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:user).permit(:email, :password)
+    params.require(:session).permit(:email, :password)
   end
 end

@@ -1,0 +1,39 @@
+<aside>
+  <div>
+    cl_image_tag(@user.photo.key)
+    <div>
+      <%= @user.fullName %>
+    </div>
+  </div>
+  <div>
+    
+  <div>
+    <div>
+      <span>
+        <%= @user.followed.size %>
+      </span>
+      <span>
+        Following
+      </span>
+    </div>
+    <div>
+      <span>
+        <%= @user.followers.size %>
+      </span>
+      <span>
+        Followers
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <ul>
+      <li>
+        <%= link_to root, 'Home' %>
+      </li>
+      <li>
+        <%= link_to @user, 'Profile' %>
+      </li>
+    </ul>
+  </div>
+</aside>

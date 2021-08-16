@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% if flash %>
+      <% flash.each do |key, value| %>
+        <div class='alert alert-danger text-center container-fluid position-absolute'><%= value %></div>
+      <% end %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
