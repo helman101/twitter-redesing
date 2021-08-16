@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy ]
 
   get '/sign_up', to: 'users#new'
-  get '/home', to: 'users#show'
+  get '/home', to: 'opinions#index'
 
   resources :followings
 
