@@ -1,0 +1,34 @@
+<section>
+
+
+  <div>
+    <div class='tpv-container d-flex'>
+      <div class='tpv font-weight-bold text-center'>TWEETS</div>
+      <div class='tpv font-weight-bold text-center'>PHOTOS</div>
+      <div class='tpv font-weight-bold text-center'>VIDEOS</div>
+    </div>
+
+    <div>
+      <%= form_for :opinion, method: :post do |f| %>
+        <%= f.label :content, 'TWEET SOMETHING' %>
+        <%= f.text_area :content %>
+        <%= f.submit 'Tweet' %>
+      <% end %>
+    </div>
+
+    <div>
+      <h4>TWEETS</h4>
+      <hr />
+
+
+    </div>
+  </div>
+  
+  <aside>
+    <div>
+      <h4>WHO TO FOLLOW</h4>
+      <hr />
+    </div>
+  </aside>
+
+</section>
