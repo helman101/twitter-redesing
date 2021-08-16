@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if @user
       if @user.authenticate(session_params[:password])
         session[:user_id] = @user.id
-        redirect_to user_path, notice: 'Log in successfully'
+        redirect_to user_opinions_path(@user.id), notice: 'Log in successfully'
       else
         redirect_to root_path, alert: 'Wrong password, try again'
       end
