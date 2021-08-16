@@ -19,6 +19,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(238, 238, 238);
 }
 
 .content {
@@ -37,4 +38,24 @@ body {
 
 .form-tl {
   font-size: 2.8em;
+}
+
+.w-100vw {
+  width: 100vw;
+}
+
+.tpv-container {
+  height: 10vh;
+
+  .tpv {
+    padding: 12px 0;
+    height: 100%;
+    width: 100px;
+    color: rgb(153, 153, 153);
+
+    &:hover {
+      color: rgb(85, 85, 85);
+      border-bottom: 5px solid $primary;
+    }
+  }
 }
